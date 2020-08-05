@@ -8,17 +8,17 @@ namespace PrimeNumbers.Tests
     public class GetPrimeTests
     {
         [Theory]
-        [InlineData(7, Prime.PRIME)]
-        [InlineData(12, Prime.NOTPRIME)]
-        [InlineData(27, Prime.NOTPRIME)]
-        [InlineData(191, Prime.PRIME)]
-        [InlineData(1039, Prime.PRIME)]
+        [InlineData(7, 17)]
+        [InlineData(12, 37)]
+        [InlineData(27, 103)]
+        [InlineData(191, 1153)]
+        [InlineData(1039, 8287)]
 
 
-        public void TestAll(int userNum, Prime expected)
+        public void TestAll(int userNum, int expected)
         {
             PrimeNumbers primeNum = new PrimeNumbers();
-            Prime final = (Prime)primeNum.GetPrime(userNum);
+            int final = primeNum.GetPrime(userNum);
 
             Assert.Equal(expected, final);
         }

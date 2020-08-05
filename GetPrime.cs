@@ -14,32 +14,40 @@ namespace PrimeNumbers
     {
         public int GetPrime(int userNum)
         {
-            int lastNum = 0;
-            int lastPrime = 3;
-            int primeCount = 2;
+            List<int> primeList = new List<int>();
+            primeList.Add(2);
+            primeList.Add(3);
+            Prime primey;
+            int index;
 
-            for (int index = 3; primeCount < userNum; index++)
+            for (index = 4; primeList.Count < userNum; index++)
             {
-                if (index % 2 == 0)
+                int primeCount = primeList.Count;
+                for (int index2 = 0; index2 < primeCount; index2++)
                 {
-                    lastNum = index;
-                }
-                else if (index % 3 == 0)
-                {
-                    lastNum = index;
-                }
-                else if ((index / (Math.Truncate(Math.Sqrt(index)))) % 1 == 0)
-                {
-                    lastNum = index;
-                }
-                else
-                {
-                    lastPrime = index;
-                    primeCount++;
+                    if (index % primeList[index2] == 0)
+                    {
+                        break;
+                    }
+                    else if (index2 == primeCount - 1)
+                    {
+                        primeList.Add(index);
+                    }
                 }
             }
-            lastNum += 1;
-            return lastNum;
+
+            int userPrime = primeList[userNum - 1];
+
+            if (primeList.Contains(userPrime))
+            {
+                primey = Prime.PRIME;
+            }
+            else
+            {
+                primey = Prime.NOTPRIME;
+            }
+
+            return primeList[userNum - 1];
         }
     }
 }

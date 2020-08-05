@@ -34,7 +34,8 @@ namespace PrimeNumbers
                     {
                         Console.WriteLine("That is not a valid choice. Select y or n ");
                     }
-                } while (anotherRound != "y" && anotherRound != "n"); 
+                } while (anotherRound != "y" && anotherRound != "n");
+                Console.Write("\na goodbye message.");
             }
         }
     }
